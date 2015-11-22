@@ -24,6 +24,12 @@ Maxime Emorine
 - AppBundle\Controller\AccountController
 - route: /inscription
 
+
+3) Api
+
+- /admin/lecons/api
+- /admin/notes/api
+
 --
 
 Format used for the mapping information : YML

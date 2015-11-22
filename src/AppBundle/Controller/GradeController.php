@@ -123,7 +123,5 @@ class GradeController extends Controller
         $grade = $em->getRepository('AppBundle:Grade')->findAllArray();
 
         return new JsonResponse($grade);
-
-
     }
 }

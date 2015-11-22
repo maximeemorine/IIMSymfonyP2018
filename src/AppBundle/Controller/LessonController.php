@@ -10,16 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Form\LessonType;
 use AppBundle\Entity\Lesson;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * @Route("/admin")
+ * @Route("/admin/lecons")
  */
 class LessonController extends Controller
 {
 
     /**
-     * @Route("/lecons", name="back_lesson_index")
+     * @Route("", name="back_lesson_index")
      * @Template
      */
     public function indexAction()
@@ -32,7 +32,7 @@ class LessonController extends Controller
 
 
     /**
-     * @Route("/lecons/ajouter", name="back_lesson_add")
+     * @Route("/ajouter", name="back_lesson_add")
      * @Template
      */
     public function addAction(Request $request)
@@ -59,7 +59,7 @@ class LessonController extends Controller
 
 
     /**
-     * @Route("/lecons/modifier/{id}", name="back_lesson_edit")
+     * @Route("/modifier/{id}", name="back_lesson_edit")
      * @Template
      */
     public function editAction(Request $request, $id)
@@ -90,7 +90,7 @@ class LessonController extends Controller
     }
 
     /**
-    * @Route("/lecons/supprimer/{id}", name="back_lesson_delete")
+    * @Route("/supprimer/{id}", name="back_lesson_delete")
     * @Template
     */
     public function deleteAction(Request $request, $id)
@@ -110,5 +110,16 @@ class LessonController extends Controller
         $session->getFlashBag()->add('back', 'Utilisateur supprimé');
 
         return $this->redirect($this->generateUrl('back_lesson_index'));
+    }
+
+    /**
+    * @Route("/api", name="back_lesson_api")
+    */
+    public function apiIndexAction() {
+
+        $em = $this->getDoctrine()->getManager();
+        $lesson = $em->getRepository('AppBundle:Lesson')->findAllArray();
+
+        return new JsonResponse($lesson);
     }
 }
