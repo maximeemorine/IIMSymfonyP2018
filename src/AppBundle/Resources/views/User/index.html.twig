@@ -1,0 +1,52 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block main %}
+
+	<div class="row">
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h1>Utilisateurs</h1>
+
+                    <a href="{{ path('back_user_add') }}" class="bouton-blue ib">Ajouter un utilisateur</a>
+                </div>
+
+                <div class="panel-body grid">
+                    <table>
+    					<thead>
+    						<tr>
+    							<th>id</th>
+                                <th colspan="2">name</th>
+                                <th>Email</th>
+    							<th>Action</th>
+    						</tr>
+    					</thead>
+
+    					<tbody>
+    						{% for user in users %}
+    							<tr>
+    								<td>{{ user.id }}</td>
+                                    <td>{{ user.firstname }}</td>
+									<td>{{ user.lastname }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>
+    									<a href="{{ path('back_user_delete', {id: user.id}) }}" class="bouton-red">Supprimer</a>
+    								</td>
+    							</tr>
+    						{% else %}
+    							<tr>
+    								<td colspan="4">Aucun utilisateur n'a été trouvé</td>
+    							</tr>
+    						{% endfor %}
+
+    					</tbody>
+    				</table>
+                </div>
+
+            </div>
+
+	</div>
+
+
+{% endblock %}

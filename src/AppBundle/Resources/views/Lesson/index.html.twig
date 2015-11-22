@@ -1,0 +1,56 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block main %}
+
+	<div class="row">
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h1>Lessons</h1>
+
+                    <a href="{{ path('back_lesson_add') }}" class="bouton-blue ib">Ajouter une leçon</a>
+                </div>
+
+                <div class="panel-body grid">
+                    <table>
+    					<thead>
+    						<tr>
+    							<th>id</th>
+								<th>Titre</th>
+								<th>Description</th>
+								<th>Auteur</th>
+    							<th colspan="2">Actions</th>
+    						</tr>
+    					</thead>
+
+    					<tbody>
+    						{% for lesson in lessons %}
+    							<tr>
+    								<td>{{ lesson.id }}</td>
+									<td>{{ lesson.title }}</td>
+									<td>{{ lesson.description }}</td>
+									<td>{{ lesson.author.firstname }} {{ lesson.author.lastname }}</td>
+    								<td>
+    									<a href="{{ path('back_lesson_edit', {id: lesson.id}) }}" class="bouton-green">Modifier</a>
+    								</td>
+                                    <td>
+    									<a href="{{ path('back_lesson_delete', {id: lesson.id}) }}" class="bouton-red">Supprimer</a>
+    								</td>
+    							</tr>
+    						{% else %}
+    							<tr>
+    								<td colspan="3">Aucune leçon n'a été trouvé</td>
+    							</tr>
+    						{% endfor %}
+
+    					</tbody>
+    				</table>
+                </div>
+
+            </div>
+
+	</div>
+
+
+{% endblock %}

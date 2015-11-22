@@ -1,0 +1,64 @@
+button[type='submit']{
+	padding: 7px 25px;
+	color: white;
+	text-align: center;
+	background-color: $primary-color;
+	border: none;
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+
+
+	&:focus{
+		outline: 0;
+	}
+
+	&:hover{
+		background-color: $primary-color + 20;
+		cursor: pointer;
+	}
+}
+
+
+.panel-body input, .panel-body textarea{
+
+	border: 2px solid gray;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	padding: 8px 15px;
+	font-size: 22px;
+	color: $primary-color;
+	margin: 6px 0 20px 0;
+	display: block;
+	font-family: inherit;
+
+	@include transition(border, 0.2s);
+
+	&:focus{
+		border: 2px solid $primary-color;
+	}
+}
+
+
+.panel-body input[type='file']{
+	font-size: 12px; 
+}
+
+.grid .grid-row-filters{
+	display: none;
+}
+
+.modif-pass{
+	display: block;
+	text-decoration: underline;
+	color: $secondary-color;
+	margin-top: 20px;
+}
+
+textarea{
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+}

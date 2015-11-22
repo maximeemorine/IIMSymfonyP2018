@@ -1,0 +1,43 @@
+// Fichier SASS principal
+// Author: Maxime Emorine
+//
+//
+
+// Couleurs
+$primary-color: #f1592a;
+$secondary-color: #8a8a8a;
+$third-color: #ebebeb;
+$text-color: #3a3a3c;
+$btn-color: #3a3a3c; 
+
+$secondary-text-font : "Times New Roman";
+
+
+// Mixins
+@mixin bg_cover(){
+
+	-webkit-background-size: cover; /* pour Chrome et Safari */
+	-moz-background-size: cover; /* pour Firefox */
+	-o-background-size: cover; /* pour Opera */
+	background-size: cover; /* version standardisÃ©e */
+}
+
+@mixin transition($property, $time){
+
+	-webkit-transition: $property $time;
+	-moz-transition: $property $time;
+	transition: $property $time;
+}
+
+
+// Import du reset CSS
+@import 'reset';
+@import 'mediaqueries';
+@import 'general';
+@import 'content';
+@import 'glyphicons';
+@import 'apygrid';
+@import 'flashbag';
+@import 'formulaires';
+
+ 

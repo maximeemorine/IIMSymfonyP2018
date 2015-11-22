@@ -1,0 +1,29 @@
+body{
+
+	color: $text-color;
+	font: $text-font;
+	width: 100%;
+}
+
+.container{
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+h1{
+
+}
+
+a{
+	color: inherit;
+	text-decoration: none;
+
+	&:active{
+		color: inherit;
+	}
+
+	&:hover{
+		color: white;
+	}
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <title>Connexion</title>
+
+        <!-- Feuille de style -->
+        <link rel="stylesheet" href="{{ asset('back/style/login/login.css')}}">
+
+        <!-- Google Font -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body>
+
+
+
+        <div id="login-form">
+
+            <div id="logo"><img src="{{ asset('back/images/logo.svg')}}" alt=""></div>
+            <form action="{{ path('login_check') }}" method="post">
+
+                <label class="animated fadeInUp">
+                    <span>Email</span>
+                    <input type="text" id="username" name="_username" />
+                </label>
+
+
+                <label class="animated fadeInUp">
+                    <span>Mot de passe</span>
+                    <input type="password" id="password" name="_password" />
+                </label>
+
+                <button class="animated fadeInUp" type="submit">login</button>
+            </form>
+        </div>
+
+
+
+
+    <script type="text/javascript" src="{{ asset('front/js/jquery.min.js') }}"></script>
+
+    <script>
+
+        $('input').on('input', function() {
+            if( this.value ){
+                $(this).siblings('span').attr('class', 'filled');
+            }
+
+            else{
+                $(this).siblings('span').removeClass('filled');
+            }
+        });
+    </script>
+
+
+
+    </body>
+
+
+</html>

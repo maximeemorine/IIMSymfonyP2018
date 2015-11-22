@@ -1,0 +1,32 @@
+form{
+
+	input{
+
+	}
+
+	input[type=submit]{
+
+		width: 100%;
+		min-width: 100%;
+		max-width: 100%;
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		border: none;
+
+		&:focus{
+			box-shadow: none;
+			outline-width: 0;
+		}
+	}
+
+	textarea{
+
+		width: 100%;
+		min-width: 100%;
+		max-width: 100%;
+	}
+}
+
+
+

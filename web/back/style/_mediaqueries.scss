@@ -1,0 +1,26 @@
+// Fichier SASS de définition des mixins de media queries
+// Author: Maxime Emorine
+//
+//
+
+$smartphone:480px;
+$tablet:768px;
+$notebook:1000px;
+
+@mixin smartphone {
+	@media (max-width: #{$smartphone - 1px}){
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{$smartphone}) and (max-width: #{$tablet - 1px}){
+		@content;
+	}
+}
+
+@mixin notebook {
+	@media (min-width: #{$tablet}) and (max-width: #{$notebook - 1px}){
+		@content;
+	}
+}

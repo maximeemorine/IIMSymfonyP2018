@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+		<title>{% block title %}Administration{% endblock %}</title>
+
+		<!-- Feuilles de style -->
+
+		<link rel="stylesheet" type="text/css" href="{{ asset('back/style/style.css')}}">
+		{% block stylesheets %}{% endblock %}
+
+		<!-- Google Font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+	</head>
+
+	<body>
+
+		{% for message in app.session.flashbag.get('back') %}
+			<div class="flash info">
+				<i class="icon-bell"></i>
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		{% for message in app.session.flashbag.get('back-alert') %}
+				<div class="flash alert">
+				<i class="icon-bell"></i>
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		<div id="backoffice">
+
+			<!-- la barre latérale -->
+			<div id="aside">
+
+				<div id="aside-header">
+					<h1>Smart</h1>
+				</div>
+
+				<div id="nav-trigger">
+					<i class="icon-menu"></i>
+				</div>
+
+				<nav>
+					<ul>
+						<li><a href="{{ path('back_index') }}"><i class="icon-stats-dots"></i> Dashboard</a></li>
+						<li><a href="{{ path('back_user_index') }}"><i class="icon-user"></i> Utilisateurs</a></li>
+						<li><a href="{{ path('back_lesson_index') }}"><i class="icon-file-text"></i> Leçons</a></li>
+						<li><a href="{{ path('back_grades_index') }}"><i class="icon-stats-dots"></i> Notes</a></li>
+					</ul>
+				</nav>
+
+			</div><!--
+
+
+		 --><div id="main">
+
+				<header>
+					Bonjour {{ app.user.firstname }} {{ app.user.lastname }} | <a href="{{ path('logout') }}"><i class="icon-switch"></i> Déconnexion</a>
+				</header>
+
+				<main>
+					{% block main %}{% endblock %}
+				</main>
+
+			</div>
+
+		</div>
+
+
+		<script src="{{ asset('back/js/jquery.min.js') }}"></script>
+		<script src="{{ asset('back/js/main.js') }}"></script>
+		{% block javascripts %}{% endblock %}
+
+	</body>
+
+</html>

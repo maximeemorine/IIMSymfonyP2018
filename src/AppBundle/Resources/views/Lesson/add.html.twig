@@ -1,0 +1,30 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+
+{% block main %}
+
+	<div class="row">
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h1>Ajouter une leçon</h1>
+                </div>
+
+                <div class="panel-body grid">
+					{{ form(form) }}
+                </div>
+
+            </div>
+
+	</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+	<script type="text/javascript" src="{{ asset('back/js/tinymce/tinymce.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('back/js/tinymce/tinymce.settings.js') }}"></script>
+
+{% endblock %}

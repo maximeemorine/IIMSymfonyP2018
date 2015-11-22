@@ -1,0 +1,31 @@
+AppBundle\Entity\Grade:
+    type: entity
+    table: grade
+    repositoryClass: AppBundle\Repository\GradeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        grade:
+            type: smallint
+        comment:
+            type: text
+    manyToOne:
+        user:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: grade
+            joinColumn:
+                name: user_id
+                referencesColumnName: id
+                nullable: false
+        lesson:
+            targetEntity: AppBundle\Entity\Lesson
+            inversedBy: grade
+            joinColumn:
+                name: lesson_id
+                referencesColumnName: id
+                nullable: false
+    lifecycleCallbacks: {  }

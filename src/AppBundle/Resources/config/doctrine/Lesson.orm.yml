@@ -1,0 +1,31 @@
+AppBundle\Entity\Lesson:
+    type: entity
+    table: lesson
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '120'
+        description:
+            type: string
+            length: '255'
+        content:
+            type: text
+    oneToOne:
+        author:
+          targetEntity: AppBundle\Entity\User
+          inversedBy: lesson
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+    oneToMany:
+        grade:
+            targetEntity: AppBundle\Entity\Grade
+            mappedBy: lesson
+            cascade: ["persist", "remove"]
+    lifecycleCallbacks: {  }

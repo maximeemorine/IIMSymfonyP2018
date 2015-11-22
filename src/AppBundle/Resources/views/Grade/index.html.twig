@@ -1,0 +1,56 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block main %}
+
+	<div class="row">
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h1>Notes</h1>
+
+                    <a href="{{ path('back_grades_add') }}" class="bouton-blue ib">Ajouter une note</a>
+                </div>
+
+                <div class="panel-body grid">
+                    <table>
+    					<thead>
+    						<tr>
+    							<th>id</th>
+								<th>Note</th>
+								<th>Utilisateur</th>
+								<th>Leçon</th>
+    							<th colspan="2">Actions</th>
+    						</tr>
+    					</thead>
+
+    					<tbody>
+    						{% for grade in grades %}
+    							<tr>
+    								<td>{{ grade.id }}</td>
+									<td>{{ grade.grade }}</td>
+									<td>{{ grade.lesson.title }}</td>
+									<td>{{ grade.user.firstname }} {{ grade.user.lastname }}</td>
+    								<td>
+    									<a href="{{ path('back_grades_edit', {id: grade.id}) }}" class="bouton-green">Modifier</a>
+    								</td>
+                                    <td>
+    									<a href="{{ path('back_grades_delete', {id: grade.id}) }}" class="bouton-red">Supprimer</a>
+    								</td>
+    							</tr>
+    						{% else %}
+    							<tr>
+    								<td colspan="6">Aucune note n'a été trouvée</td>
+    							</tr>
+    						{% endfor %}
+
+    					</tbody>
+    				</table>
+                </div>
+
+            </div>
+
+	</div>
+
+
+{% endblock %}

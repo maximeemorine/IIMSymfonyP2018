@@ -1,0 +1,22 @@
+$smartphone-width: 320px;
+$tablet-width: 768px;
+$notebook-width: 1000px;
+
+
+@mixin smartphone {
+  @media (max-width: #{$smartphone-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$smartphone-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin notebook {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$notebook-width - 1px}) {
+    @content;
+  }
+}

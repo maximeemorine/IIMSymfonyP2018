@@ -1,0 +1,36 @@
+// On défini les variables
+
+// Couleurs
+$primary-color: #fff;
+$secondary-color: #fff;
+$third-color: #fff;
+$text-color: #fff;
+
+// Polices
+$text-font: 400 16px 'Open Sans', Arial;
+
+
+// Mixins
+@mixin bg_cover(){
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+@mixin transition($element, $time){
+
+	-webkit-transition: $element $time;
+	-moz-transition: $element $time;
+	-ms-transition: $element $time;
+	transition: $element $time;
+}
+
+
+
+// Import du reset CSS
+@import 'reset';
+@import 'mediaqueries';
+@import 'general';
+@import 'formulaires';

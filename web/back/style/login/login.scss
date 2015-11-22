@@ -1,0 +1,126 @@
+$primary-color: #4c4876; //Couleur principale: le vert
+$form-color: #a9b1c3;
+$font-color: #170e70;
+
+@mixin bg_cover(){
+
+    -webkit-background-size: cover; /* pour Chrome et Safari */
+    -moz-background-size: cover; /* pour Firefox */
+    -o-background-size: cover; /* pour Opera */
+    background-size: cover; /* version standardisÃ©e */
+}
+
+@mixin transition($cible, $time){
+
+    -webkit-transition: $cible $time;
+    -moz-transition: $cible $time;
+    transition: $cible $time;
+}
+
+
+
+@import 'reset';
+
+
+body{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background: url(bg-admin.jpg) no-repeat center;
+    @include bg_cover();
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 18px;
+    border: 15px solid rgba(91, 89, 112, 0.4);
+}
+
+
+#login-form{
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 320px;
+	height: 320px;
+	margin-top: -160px;
+	margin-left: -160px;
+	text-align: center;
+
+
+	#logo{
+
+		width: 100%;
+		margin-bottom: 30px;
+		img{
+			width: 80%;
+			height: auto;
+		}
+	}
+
+	form{
+
+		color: black;
+
+
+		label{
+			width: 100%;
+			height: 35px;
+			margin: 40px auto;
+			position: relative;
+			display: block;
+
+			span{
+				position: absolute;
+				left: 15px;
+				top: 14px;
+				z-index: 3;
+				opacity: 0.5;
+				font-weight: 300;
+				@include transition (top, 0.2s);
+
+				&.filled{
+					top: -20px;
+					left: 15px;
+				}
+			}
+
+
+
+			input{
+				color: $font-color;
+				width: 100%;
+				border-radius: 5px;
+				padding: 10px 15px;
+				background-color: rgba(169, 177, 195, 0.7);
+				border: none;
+				font-size: 18px;
+
+				@include transition(background-color, 0.3s);
+
+				&:focus{
+					outline-width: 0;
+					background-color: $form-color +20;
+				}
+			}
+		}
+
+		button{
+			background-color: $primary-color;
+			border: none;
+			border-radius: 5px;
+			width: 100%;
+			padding: 10px;
+			margin-top: 0;
+			color: white;
+			font-size: 16px;
+			font-weight: inherit;
+			font-family: inherit;
+
+			@include transition(background-color, 0.3s);
+
+			&:hover{
+				background-color: $primary-color +20;
+			}
+		}
+	}
+}

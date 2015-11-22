@@ -1,0 +1,31 @@
+.flashbag{
+	position: fixed;
+	right: 40px;
+	top: 30px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	padding: 15px;
+	padding-right: 30px;
+	color: white;
+	margin-bottom: 50px;
+	display: inline-block;
+
+	i{
+		margin-top: 2px;
+		font-size: 0.8em;
+	}
+}
+
+.info, .alert{
+
+	@extend .flashbag;
+}
+
+
+.info{
+	background-color: #A4DD9C;
+}
+
+.alert{
+	background-color: #ef7d5a !important;
+}
