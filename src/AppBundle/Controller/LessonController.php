@@ -49,7 +49,7 @@ class LessonController extends Controller
             $em->flush();
 
             $session = $request->getSession();
-            $session->getFlashBag()->add('back', 'Utilisateur ajouté');
+            $session->getFlashBag()->add('back', 'Lecon ajoutée');
 
     		return $this->redirect($this->generateUrl('back_lesson_index'));
     	}
@@ -69,7 +69,7 @@ class LessonController extends Controller
         $lesson = $em->getRepository('AppBundle:Lesson')->findOneById($id);
 
         if (!$lesson) {
-            throw new NotFoundHttpException("Cet utilisateur n'existe pas"); //Sécurité
+            throw new NotFoundHttpException("Cette lecon n'existe pas"); //Sécurité
         }
 
     	$form  = $this->createForm(new LessonType(), $lesson); // on génère le form
@@ -80,7 +80,7 @@ class LessonController extends Controller
             $em->flush();
 
             $session = $request->getSession();
-            $session->getFlashBag()->add('back', 'Utilisateur modifié');
+            $session->getFlashBag()->add('back', 'Lecon modifiée');
 
 
     		return $this->redirect($this->generateUrl('back_lesson_index'));
@@ -100,14 +100,14 @@ class LessonController extends Controller
         $lesson = $em->getRepository('AppBundle:Lesson')->find($id);
 
         if (!$lesson) {
-            throw new NotFoundHttpException("Cet utilisateur n'existe pas"); //Sécurité
+            throw new NotFoundHttpException("Cette lecon n'existe pas"); //Sécurité
         }
 
         $em->remove($lesson);
         $em->flush();
 
         $session = $request->getSession();
-        $session->getFlashBag()->add('back', 'Utilisateur supprimé');
+        $session->getFlashBag()->add('back', 'Lecon supprimée');
 
         return $this->redirect($this->generateUrl('back_lesson_index'));
     }

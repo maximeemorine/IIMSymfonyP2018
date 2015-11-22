@@ -1,7 +1,47 @@
-{{ form_start(form) }}
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
-{{ form_end(form) }}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Accueil</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('back/style/style.css')}}">
+		{% block stylesheets %}{% endblock %}
+
+		<!-- Google Font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+
+
+        <div id="main" style="width: 100vw; height: 100vh">
+
+            <main>
+                <div class="row">
+
+            		<div class="panel">
+
+            			<div class="panel-header">
+            				<h1>Inscription</h1>
+            			</div>
+
+            			<div class="panel-body">
+                            {{ form_start(form) }}
+                                {{ form_row(form.firstname) }}
+                                {{ form_row(form.lastname) }}
+                                {{ form_row(form.email) }}
+                                {{ form_row(form.plainPassword.first) }}
+                                {{ form_row(form.plainPassword.second) }}
+                            {{ form_end(form) }}
+
+            		    </div>
+
+            		</div>
+
+            	</div>
+            </main>
+
+        </div>
+
+    </body>
+</html>

@@ -50,7 +50,7 @@ class GradeController extends Controller
             $em->flush();
 
             $session = $request->getSession();
-            $session->getFlashBag()->add('back', 'Utilisateur ajouté');
+            $session->getFlashBag()->add('back', 'Note ajoutée');
 
     		return $this->redirect($this->generateUrl('back_grades_index'));
     	}
@@ -70,7 +70,7 @@ class GradeController extends Controller
         $grade = $em->getRepository('AppBundle:Grade')->findOneById($id);
 
         if (!$grade) {
-            throw new NotFoundHttpException("Cet utilisateur n'existe pas"); //Sécurité
+            throw new NotFoundHttpException("Cette note n'existe pas"); //Sécurité
         }
 
     	$form  = $this->createForm(new GradeType(), $grade); // on génère le form
@@ -81,7 +81,7 @@ class GradeController extends Controller
             $em->flush();
 
             $session = $request->getSession();
-            $session->getFlashBag()->add('back', 'Utilisateur modifié');
+            $session->getFlashBag()->add('back', 'Note modifiée');
 
 
     		return $this->redirect($this->generateUrl('back_grades_index'));
@@ -101,14 +101,14 @@ class GradeController extends Controller
         $grade = $em->getRepository('AppBundle:Grade')->find($id);
 
         if (!$grade) {
-            throw new NotFoundHttpException("Cet utilisateur n'existe pas"); //Sécurité
+            throw new NotFoundHttpException("Cette note n'existe pas"); //Sécurité
         }
 
         $em->remove($grade);
         $em->flush();
 
         $session = $request->getSession();
-        $session->getFlashBag()->add('back', 'Utilisateur supprimé');
+        $session->getFlashBag()->add('back', 'Note supprimée');
 
         return $this->redirect($this->generateUrl('back_grades_index'));
     }

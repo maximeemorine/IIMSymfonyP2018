@@ -3,12 +3,39 @@
     <head>
         <meta charset="utf-8">
         <title>Accueil</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('back/style/style.css')}}">
+		{% block stylesheets %}{% endblock %}
+
+		<!-- Google Font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
     </head>
     <body>
 
-        <h1>Hello !</h1>
-        <p>
-            <a href="{{ path('security_login') }}">Connexion</a>
-        </p>
+
+        <div id="main"  style="width: 100vw; height: 100vh">
+
+            <main>
+                <div class="row">
+
+            		<div class="panel">
+
+            			<div class="panel-header">
+            				<h1>Bonjour</h1>
+            			</div>
+
+            			<div class="panel-body">
+                            <a href="{{ path('security_login') }}" class="bouton-blue">Connexion</a>
+                            <a href="{{ path('front_user_registration') }}" class="bouton-red">Inscription</a>
+            		    </div>
+
+            		</div>
+
+            	</div>
+            </main>
+
+        </div>
+
     </body>
 </html>

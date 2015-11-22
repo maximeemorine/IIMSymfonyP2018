@@ -1,6 +1,4 @@
 IIM Promo 2018 - Symfony
-
---
 Maxime Emorine
 
 - composer install
@@ -8,7 +6,11 @@ Maxime Emorine
 - php app/console doctrine:schema:update --dump-sql --force
 - php app/console doctrine:fixtures:load
 
+--
 
+Format used for the mapping information : YML
+
+--
 
 
 1) form login
@@ -18,6 +20,7 @@ Maxime Emorine
 - route : /login
 - username: admin@admin.fr
 - password: admin
+
 
 2) form registration
 
@@ -29,7 +32,3 @@ Maxime Emorine
 
 - /admin/lecons/api
 - /admin/notes/api
-
---
-
-Format used for the mapping information : YML
