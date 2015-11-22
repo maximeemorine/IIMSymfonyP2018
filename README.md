@@ -1,4 +1,16 @@
-qqf
-===
+IIM Promo 2018 - Symfony
 
-A Symfony project created on July 9, 2015, 5:44 pm.
+--
+Maxime Emorine
+
+
+1) form login
+
+- AppBundle\Controller\SecurityController
+- provider: class AppBundle:User
+- route : /login
+
+2) form registration
+
+- AppBundle\Controller\AccountController
+- route: /inscription
